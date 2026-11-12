@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saúde Mental | Projeto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="saude-body">
+    <div id="saude-login-screen" class="saude-login-screen">
+        <div class="saude-login-panel saude-login-left">
+            <div class="saude-logo">🩺</div>
+            <h1>Saúde Mental</h1>
+            <p>Um espaço de acolhimento para cuidar da sua saúde emocional, com apoio, práticas e equilíbrio.</p>
+        </div>
+
+        <div class="saude-login-panel saude-login-right">
+            <div class="saude-login-card">
+                <h2>Acesso à demonstração</h2>
+                <p class="saude-login-hint">Esta é uma demonstração ilustrativa. Clique em “Acessar” para explorar o projeto.</p>
+                <button id="saudeEntrarBtn" type="button">Acessar</button>
+                <a href="index.html">Voltar ao portfólio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="saude-app" class="saude-app hidden">
+        <header class="saude-header">
+            <div class="saude-brand-wrap">
+                <div class="saude-mini-badge">1</div>
+                <div class="saude-brand-text">Saúde Mental</div>
+            </div>
+
+            <nav class="saude-nav" aria-label="Navegação principal">
+                <button class="saude-tab active" type="button" data-view="inicio" aria-current="page">Início</button>
+                <button class="saude-tab" type="button" data-view="conteudos">Conteúdos</button>
+                <button class="saude-tab" type="button" data-view="desafios">Desafios</button>
+                <button class="saude-tab" type="button" data-view="sobre">Sobre</button>
+                <a class="saude-tab saude-back-link" href="index.html">Voltar</a>
+            </nav>
+        </header>
+
+        <main class="saude-main">
+            <section class="saude-view" data-panel="inicio" aria-label="Início">
+                <div class="saude-grid">
+                <article class="saude-card saude-card--highlight">
+                    <h3>Como você está se sentindo hoje?</h3>
+                    <p>Você pode escrever livremente.</p>
+                    <button type="button" class="saude-btn saude-btn--primary" data-open-dialog="tecnica">Ver técnica</button>
+                </article>
+
+                <article class="saude-card saude-card--soft">
+                    <h3>Respire com calma</h3>
+                    <p>Faça uma pausa guiada de um minuto, no seu ritmo.</p>
+                    <button type="button" class="saude-btn saude-btn--secondary" data-open-dialog="pausa">Iniciar pausa</button>
+                </article>
+
+                <article class="saude-card saude-card--soft">
+                    <h3>Conteúdos leves</h3>
+                    <p>Meditação guiada e dicas sobre ansiedade e rotina.</p>
+                    <button type="button" class="saude-btn saude-btn--secondary" data-go-view="conteudos">Ver conteúdos</button>
+                </article>
+
+                <article class="saude-card saude-card--alert">
+                    <h3>Desafios e Ganhos</h3>
+                    <p>Complete desafios diários e acompanhe seu progresso.</p>
+                    <button type="button" class="saude-btn saude-btn--accent" data-go-view="desafios">Ver desafios</button>
+                </article>
+
+                <article class="saude-card saude-card--journal">
+                    <h3>Seu momento de hoje</h3>
+                    <p>Registre como você está se sentindo. Este registro fica salvo apenas neste navegador.</p>
+                    <form id="saudeCheckinForm" class="saude-checkin-form">
+                        <label for="saudeCheckin">Como você está hoje?</label>
+                        <textarea id="saudeCheckin" name="checkin" rows="3" maxlength="500" placeholder="Escreva no seu tempo..." required></textarea>
+                        <button type="submit" class="saude-btn saude-btn--primary">Salvar registro</button>
+                    </form>
+                    <p id="saudeCheckinFeedback" class="saude-feedback" role="status" aria-live="polite"></p>
+                    <div id="saudeCheckinHistory" class="saude-checkin-history" aria-live="polite"></div>
+                </article>
+                </div>
+            </section>
+
+            <section class="saude-view hidden" data-panel="conteudos" aria-label="Conteúdos">
+                <div class="saude-section-heading">
+                    <h1>Conteúdos para cuidar de você</h1>
+                    <p>Pequenas práticas para incluir na rotina, sem cobranças.</p>
+                </div>
+                <div class="saude-grid saude-grid--secondary">
+                    <article class="saude-card saude-card--soft">
+                        <h3>Respiração consciente</h3>
+                        <p>Reserve alguns minutos para notar o ar entrando e saindo, sem tentar mudar nada.</p>
+                        <button type="button" class="saude-btn saude-btn--secondary" data-open-dialog="tecnica">Experimentar</button>
+                    </article>
+                    <article class="saude-card saude-card--highlight">
+                        <h3>Gentileza consigo</h3>
+                        <p>Escolha uma frase acolhedora que você diria a alguém querido e ofereça essa mesma gentileza a si.</p>
+                        <button type="button" class="saude-btn saude-btn--primary" data-content-read>Marcar como lido</button>
+                    </article>
+                    <article class="saude-card saude-card--soft">
+                        <h3>Pausa para alongar</h3>
+                        <p>Se for confortável, movimente ombros e pescoço devagar. Pare se sentir desconforto.</p>
+                        <button type="button" class="saude-btn saude-btn--secondary" data-content-read>Marcar como lido</button>
+                    </article>
+                </div>
+            </section>
+
+            <section class="saude-view hidden" data-panel="desafios" aria-label="Desafios">
+                <div class="saude-section-heading">
+                    <h1>Desafios gentis</h1>
+                    <p>Escolha o que fizer sentido. Você pode concluir no seu próprio ritmo.</p>
+                    <p id="saudeProgress" class="saude-progress" role="status" aria-live="polite">0 de 3 concluídos</p>
+                </div>
+                <div class="saude-grid saude-grid--secondary">
+                    <article class="saude-card saude-card--highlight">
+                        <h3>Fazer uma pausa</h3>
+                        <p>Separe um minuto para respirar com atenção.</p>
+                        <button type="button" class="saude-btn saude-btn--primary" data-challenge="pausa">Concluir desafio</button>
+                    </article>
+                    <article class="saude-card saude-card--soft">
+                        <h3>Reconhecer algo bom</h3>
+                        <p>Anote uma pequena coisa que trouxe conforto hoje.</p>
+                        <button type="button" class="saude-btn saude-btn--secondary" data-challenge="gratidao">Concluir desafio</button>
+                    </article>
+                    <article class="saude-card saude-card--alert">
+                        <h3>Cuidar do corpo</h3>
+                        <p>Beba água ou faça um alongamento leve, se for confortável.</p>
+                        <button type="button" class="saude-btn saude-btn--accent" data-challenge="corpo">Concluir desafio</button>
+                    </article>
+                </div>
+            </section>
+
+            <section class="saude-view hidden" data-panel="sobre" aria-label="Sobre">
+                <div class="saude-about-card">
+                    <h1>Sobre este protótipo</h1>
+                    <p>Este projeto demonstra recursos simples de bem-estar emocional. Não substitui acompanhamento profissional nem oferece atendimento de emergência.</p>
+                    <p>Os registros e desafios ficam armazenados localmente neste navegador para fins de demonstração. Não são enviados a um servidor.</p>
+                    <button id="saudeSairBtn" type="button" class="saude-btn saude-btn--secondary">Sair da demonstração</button>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <dialog id="saudeDialog" class="saude-dialog" aria-labelledby="saudeDialogTitle">
+        <div class="saude-dialog-content">
+            <button type="button" class="saude-dialog-close" data-close-dialog aria-label="Fechar">×</button>
+            <h2 id="saudeDialogTitle"></h2>
+            <p id="saudeDialogText"></p>
+            <p id="saudeBreathingPrompt" class="saude-breathing-prompt hidden" aria-live="polite"></p>
+            <button id="saudeDialogAction" type="button" class="saude-btn saude-btn--primary hidden"></button>
+        </div>
+    </dialog>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginScreen = document.getElementById('saude-login-screen');
+            const app = document.getElementById('saude-app');
+            const loginButton = document.getElementById('saudeEntrarBtn');
+            const checkinForm = document.getElementById('saudeCheckinForm');
+            const checkinFeedback = document.getElementById('saudeCheckinFeedback');
+            const checkinHistory = document.getElementById('saudeCheckinHistory');
+            const dialog = document.getElementById('saudeDialog');
+            const dialogTitle = document.getElementById('saudeDialogTitle');
+            const dialogText = document.getElementById('saudeDialogText');
+            const dialogAction = document.getElementById('saudeDialogAction');
+            const breathingPrompt = document.getElementById('saudeBreathingPrompt');
+            const storagePrefix = 'saudeMentalDemo';
+            let breathingTimer;
+            let activityTimer;
+
+            function readStorage(key, fallback) {
+                try {
+                    const value = localStorage.getItem(storagePrefix + key);
+                    return value ? JSON.parse(value) : fallback;
+                } catch (error) {
+                    console.error('Não foi possível ler os dados da demonstração.', error);
+                    return fallback;
+                }
+            }
+
+            function writeStorage(key, value) {
+                try {
+                    localStorage.setItem(storagePrefix + key, JSON.stringify(value));
+                    return true;
+                } catch (error) {
+                    console.error('Não foi possível salvar os dados da demonstração.', error);
+                    return false;
+                }
+            }
+
+            function renderCheckins() {
+                const entries = readStorage('Checkins', []);
+                checkinHistory.replaceChildren();
+                entries.slice().reverse().forEach(function (entry) {
+                    const item = document.createElement('article');
+                    const date = document.createElement('time');
+                    const text = document.createElement('p');
+                    item.className = 'saude-checkin-entry';
+                    date.dateTime = entry.date;
+                    date.textContent = new Date(entry.date).toLocaleString('pt-BR');
+                    text.textContent = entry.text;
+                    item.append(date, text);
+                    checkinHistory.append(item);
+                });
+            }
+
+            function renderChallenges() {
+                const completed = readStorage('Challenges', []);
+                document.querySelectorAll('[data-challenge]').forEach(function (button) {
+                    const isCompleted = completed.includes(button.dataset.challenge);
+                    button.textContent = isCompleted ? 'Desafio concluído' : 'Concluir desafio';
+                    button.disabled = isCompleted;
+                });
+                document.getElementById('saudeProgress').textContent = completed.length + ' de 3 concluídos';
+            }
+
+            function closeDialog() {
+                window.clearInterval(breathingTimer);
+                window.clearTimeout(breathingTimer);
+                window.clearTimeout(activityTimer);
+                breathingTimer = undefined;
+                activityTimer = undefined;
+                if (dialog.open) dialog.close();
+            }
+
+            function openDialog(type) {
+                closeDialog();
+                dialogAction.disabled = false;
+                dialogAction.classList.add('hidden');
+                breathingPrompt.classList.add('hidden');
+
+                if (type === 'tecnica') {
+                    dialogTitle.textContent = 'Respiração tranquila';
+                    dialogText.textContent = 'Encontre uma posição confortável. Inspire pelo nariz por 4 segundos e solte o ar devagar por 6 segundos. Faça apenas enquanto estiver confortável.';
+                    dialogAction.textContent = 'Começar exercício';
+                    dialogAction.classList.remove('hidden');
+                    dialogAction.dataset.action = 'breathing';
+                } else {
+                    dialogTitle.textContent = 'Pausa consciente';
+                    dialogText.textContent = 'Por um minuto, observe o ambiente ao seu redor. Note três coisas que consegue ver, duas que consegue sentir e um som que consegue ouvir.';
+                    dialogAction.textContent = 'Iniciar pausa de 1 minuto';
+                    dialogAction.classList.remove('hidden');
+                    dialogAction.dataset.action = 'pause';
+                }
+                dialog.showModal();
+            }
+
+            loginButton.addEventListener('click', function () {
+                loginScreen.classList.add('hidden');
+                app.classList.remove('hidden');
+                renderCheckins();
+                renderChallenges();
+            });
+
+            checkinForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const text = document.getElementById('saudeCheckin').value.trim();
+                if (!text) {
+                    checkinFeedback.textContent = 'Escreva algo antes de salvar.';
+                    return;
+                }
+                const entries = readStorage('Checkins', []);
+                entries.push({ text: text, date: new Date().toISOString() });
+                if (!writeStorage('Checkins', entries.slice(-20))) {
+                    checkinFeedback.textContent = 'Não foi possível salvar neste navegador. Tente novamente.';
+                    return;
+                }
+                checkinForm.reset();
+                checkinFeedback.textContent = 'Seu registro foi salvo neste navegador.';
+                renderCheckins();
+            });
+
+            document.querySelectorAll('.saude-tab').forEach(function (tab) {
+                tab.addEventListener('click', function () {
+                    document.querySelectorAll('.saude-tab').forEach(function (item) {
+                        item.classList.toggle('active', item === tab);
+                        if (item === tab) item.setAttribute('aria-current', 'page');
+                        else item.removeAttribute('aria-current');
+                    });
+                    document.querySelectorAll('[data-panel]').forEach(function (panel) {
+                        panel.classList.toggle('hidden', panel.dataset.panel !== tab.dataset.view);
+                    });
+                    if (tab.dataset.view === 'desafios') renderChallenges();
+                });
+            });
+
+            document.querySelectorAll('[data-go-view]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    document.querySelector('[data-view="' + button.dataset.goView + '"]').click();
+                });
+            });
+
+            document.querySelectorAll('[data-open-dialog]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    openDialog(button.dataset.openDialog);
+                });
+            });
+
+            document.querySelectorAll('[data-content-read]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    button.textContent = 'Conteúdo lido';
+                    button.disabled = true;
+                });
+            });
+
+            document.querySelectorAll('[data-challenge]').forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const completed = readStorage('Challenges', []);
+                    if (!completed.includes(button.dataset.challenge)) {
+                        completed.push(button.dataset.challenge);
+                        if (!writeStorage('Challenges', completed)) return;
+                    }
+                    renderChallenges();
+                });
+            });
+
+            dialogAction.addEventListener('click', function () {
+                if (dialogAction.dataset.action === 'finish') {
+                    closeDialog();
+                } else if (dialogAction.dataset.action === 'breathing') {
+                    dialogAction.classList.add('hidden');
+                    breathingPrompt.classList.remove('hidden');
+                    function showBreathingPhase(phase) {
+                        const phases = [
+                            { text: 'Inspire com calma...', duration: 4000 },
+                            { text: 'Solte o ar devagar...', duration: 6000 }
+                        ];
+                        breathingPrompt.textContent = phases[phase].text;
+                        breathingTimer = window.setTimeout(function () {
+                            showBreathingPhase((phase + 1) % phases.length);
+                        }, phases[phase].duration);
+                    }
+                    showBreathingPhase(0);
+                    activityTimer = window.setTimeout(closeDialog, 60000);
+                } else if (dialogAction.dataset.action === 'pause') {
+                    dialogAction.disabled = true;
+                    dialogAction.textContent = 'Pausa iniciada...';
+                    activityTimer = window.setTimeout(function () {
+                        if (dialog.open) {
+                            dialogText.textContent = 'Pausa concluída. Obrigado por reservar esse momento para você.';
+                            dialogAction.textContent = 'Concluir';
+                            dialogAction.disabled = false;
+                            dialogAction.dataset.action = 'finish';
+                        }
+                    }, 60000);
+                }
+            });
+
+            document.querySelectorAll('[data-close-dialog]').forEach(function (button) {
+                button.addEventListener('click', closeDialog);
+            });
+            dialog.addEventListener('close', function () {
+                window.clearInterval(breathingTimer);
+                window.clearTimeout(breathingTimer);
+                window.clearTimeout(activityTimer);
+                breathingTimer = undefined;
+                activityTimer = undefined;
+            });
+            dialog.addEventListener('click', function (event) {
+                if (event.target === dialog) closeDialog();
+            });
+
+            document.getElementById('saudeSairBtn').addEventListener('click', function () {
+                app.classList.add('hidden');
+                loginScreen.classList.remove('hidden');
+            });
+        });
+    </script>
+</body>
+
+</html>

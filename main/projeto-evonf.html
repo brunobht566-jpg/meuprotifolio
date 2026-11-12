@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EvoEnf | Projeto</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="evo-body">
+    <div id="login-screen" class="login-screen">
+        <div class="login-brand">
+            <div class="brand-title">EvoEnf</div>
+            <p>Sistema de apoio à evolução acadêmica em Enfermagem.</p>
+        </div>
+
+        <div class="login-card-wrap">
+            <div class="login-card">
+                <h2>Acesso à demonstração</h2>
+                <p class="login-hint">Esta é uma demonstração ilustrativa. Clique em “Acessar” para explorar o projeto.</p>
+                <button id="loginButton" class="login-button" type="button">Acessar</button>
+
+                <a href="index.html" class="recuperar-senha">Voltar ao portfólio</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="evo-app" class="evo-app hidden">
+        <aside class="evo-sidebar">
+            <div class="brand">EvoEnf</div>
+            <nav class="evo-nav">
+                <button class="nav-item active" data-target="dashboard" type="button">Dashboard</button>
+                <button class="nav-item" data-target="alunos" type="button">Alunos</button>
+                <button class="nav-item" data-target="evolucoes" type="button">Evoluções</button>
+                <button class="nav-item" data-target="relatorios" type="button">Relatórios</button>
+                <button class="nav-item" data-target="alertas" type="button">Alertas</button>
+                <button class="nav-item sair" data-target="sair" type="button">Sair</button>
+            </nav>
+        </aside>
+
+        <main class="evo-main">
+            <section class="panel active" data-view="dashboard">
+                <h1 class="main-title">Painel Geral</h1>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">38</div>
+                        <div class="stat-label">Alunos Ativos</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">5</div>
+                        <div class="stat-label">Alertas</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">12</div>
+                        <div class="stat-label">Evoluções Hoje</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">4</div>
+                        <div class="stat-label">Estágios</div>
+                    </div>
+                </div>
+
+                <div class="alerts-box">
+                    <h2>Alertas Recentes</h2>
+
+                    <div class="alert-item critical">João Silva parece com dificuldade em comunicação.</div>
+                    <div class="alert-item warning">Ana Souza necessita reforço em terminologia técnica.</div>
+                </div>
+            </section>
+
+            <section class="panel" data-view="alunos">
+                <h1 class="main-title">Lista de Alunos</h1>
+
+                <div class="search-box">
+                    <input type="text" placeholder="Pesquisar aluno">
+                </div>
+
+                <div class="table-wrap">
+                    <table class="students-table">
+                        <thead>
+                            <tr>
+                                <th>Aluno</th>
+                                <th>UC</th>
+                                <th>Estágio</th>
+                                <th>Preceptor</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>João Silva</td>
+                                <td>UC7</td>
+                                <td>Hospital</td>
+                                <td>Maria Oliveira</td>
+                                <td><span class="status alto">Alto</span></td>
+                            </tr>
+                            <tr>
+                                <td>Ana Souza</td>
+                                <td>UC4</td>
+                                <td>PSF</td>
+                                <td>Carlos Lima</td>
+                                <td><span class="status medio">Médio</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <section class="panel" data-view="evolucoes">
+                <h1 class="main-title">Evolução do Aluno</h1>
+
+                <div class="evolucao-form">
+                    <div class="form-grid two-col">
+                        <div class="field">
+                            <label>Nome do Aluno</label>
+                            <input type="text" placeholder="Nome do Aluno">
+                        </div>
+                        <div class="field">
+                            <label>Turma</label>
+                            <input type="text" placeholder="Turma">
+                        </div>
+                    </div>
+
+                    <div class="form-grid two-col">
+                        <div class="field">
+                            <label>UC</label>
+                            <input type="text" placeholder="UC">
+                        </div>
+                        <div class="field">
+                            <label>Local do Estágio</label>
+                            <input type="text" placeholder="Local do Estágio">
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label>Preceptor</label>
+                        <input type="text" placeholder="Preceptor">
+                    </div>
+
+                    <div class="field">
+                        <label>Nível de Desempenho</label>
+                        <select>
+                            <option>Selecione o nível</option>
+                            <option>Alto</option>
+                            <option>Médio</option>
+                            <option>Baixo</option>
+                        </select>
+                    </div>
+
+                    <div class="field">
+                        <label>Descreva a evolução do aluno</label>
+                        <textarea placeholder="Descreva a evolução do aluno"></textarea>
+                    </div>
+
+                    <button class="save-btn" type="button">Salvar Evolução</button>
+                </div>
+            </section>
+
+            <section class="panel" data-view="relatorios">
+                <h1 class="main-title">Relatório Final</h1>
+
+                <div class="relatorio-card">
+                    <h2>João Silva</h2>
+                    <p>Turma: ENF2026</p>
+                    <p>UC: UC7</p>
+                    <p>Estágio: Hospital Regional</p>
+                    <p>Preceptor: Maria Oliveira</p>
+
+                    <div class="relatorio-actions">
+                        <button type="button" class="secondary-btn">Gerar PDF</button>
+                        <button type="button" class="secondary-btn">Assinar Digitalmente</button>
+                    </div>
+                </div>
+            </section>
+
+            <section class="panel" data-view="alertas">
+                <h1 class="main-title">Alertas</h1>
+
+                <div class="alert-list">
+                    <div class="alert-item critical large">
+                        29/05/2026 19:30<br>
+                        Melhoria significativa na comunicação.
+                    </div>
+                    <div class="alert-item warning large">
+                        28/05/2026 15:00<br>
+                        Dificuldade em termos técnicos.
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const loginButton = document.getElementById('loginButton');
+            const loginScreen = document.getElementById('login-screen');
+            const evoApp = document.getElementById('evo-app');
+
+            if (loginButton && loginScreen && evoApp) {
+                loginButton.addEventListener('click', function () {
+                    loginScreen.classList.add('hidden');
+                    evoApp.classList.remove('hidden');
+                });
+            }
+
+            const navItems = document.querySelectorAll('.nav-item[data-target]');
+            const panels = document.querySelectorAll('.panel[data-view]');
+
+            navItems.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    const target = button.dataset.target;
+
+                    if (target === 'sair') {
+                        loginScreen.classList.remove('hidden');
+                        evoApp.classList.add('hidden');
+                        return;
+                    }
+
+                    navItems.forEach(function (item) {
+                        item.classList.toggle('active', item === button);
+                    });
+
+                    panels.forEach(function (panel) {
+                        panel.classList.toggle('active', panel.dataset.view === target);
+                    });
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

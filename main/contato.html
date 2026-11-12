@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato | Bruno Henrique</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="menu">
+            <a href="index.html?pagina=portfolio" class="logo">Teck<span>Pink</span></a>
+            <a href="index.html?pagina=portfolio" class="botao botao-secundario">Voltar ao portfólio</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="contato">
+            <div class="container">
+                <div class="titulo">
+                    <h2>Vamos conversar?</h2>
+                    <p>Conte sua ideia e vamos transformar seu próximo projeto em uma experiência digital.</p>
+                </div>
+
+                <div class="contato">
+                    <div class="contato-info">
+                        <h3>Vamos trabalhar juntos?</h3>
+                        <p>Entre em contato para conversar sobre seu site, sistema ou projeto.</p>
+
+                        <div class="contato-item">
+                            <strong>WhatsApp</strong>
+                            <span>(35) 99999-9999</span>
+                        </div>
+
+                        <div class="contato-item">
+                            <strong>E-mail</strong>
+                            <span>seuemail@email.com</span>
+                        </div>
+
+                        <div class="contato-item">
+                            <strong>Localização</strong>
+                            <span>Minas Gerais - Brasil</span>
+                        </div>
+                    </div>
+
+                    <form onsubmit="enviarFormulario(event)">
+                        <input type="text" id="nome" placeholder="Seu nome" required>
+                        <input type="email" id="email" placeholder="Seu e-mail" required>
+                        <textarea id="mensagem" placeholder="Digite sua mensagem" required></textarea>
+                        <button type="submit" class="botao botao-principal">Enviar mensagem</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>© 2026 <span>Bruno Henrique</span> — Todos os direitos reservados.</p>
+        <p>Desenvolvido com HTML, CSS e JavaScript.</p>
+    </footer>
+
+    <button id="topo" onclick="voltarTopo()">↑</button>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
